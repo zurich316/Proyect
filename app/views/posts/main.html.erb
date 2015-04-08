@@ -1,0 +1,19 @@
+<h1>MAIN</h1>
+
+<% @posts.each do |post| %>
+
+  <h1><a href="/posts/<%=post.id%>"><%= post.titulo %></a></h1>
+  <%= post.contenido %>
+  
+  <%= post.created_at %>
+  <%= post.likes %>
+
+  <%=form_for(post,:action=>"Like") do |f| %>
+  <%= submit_tag "Like", :name=>"likes"%>
+  <%end%>
+
+
+<br><br>
+<%end%>
+<br>
+<a href="/posts">Go to Admin</a>
